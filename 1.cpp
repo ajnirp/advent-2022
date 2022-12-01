@@ -16,6 +16,7 @@ int main() {
         if (line == "") {
             elves.push_back(current_total);
             current_total = 0;
+            continue;
         }
 
         std::istringstream ss(line);
