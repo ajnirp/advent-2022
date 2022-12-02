@@ -16,13 +16,13 @@ val = {
     'S': 3,
 }
 
-defeater = {
+defeats = {
     'R': 'S',
     'S': 'P',
     'P': 'R',
 }
 
-defeated_by = {v: k for k, v in defeater.items()}
+defeated_by = {v: k for k, v in defeats.items()}
 
 with open('2.txt', 'r') as f:
     score = 0
@@ -37,13 +37,13 @@ with open('2.txt', 'r') as f:
         score += val[me]
         if me == them:
             score += 3
-        elif defeater[me] == them:
+        elif defeats[me] == them:
             score += 6
 
         if b == 'Y':
             score_2 += 3 + val[them]
         elif b == 'X':
-            score_2 += val[defeater[them]]
+            score_2 += val[defeats[them]]
         else:
             score_2 += 6 + val[defeated_by[them]]
 
