@@ -8,24 +8,17 @@ def common2(s1, s2):
         if c in s2:
             return c
 
-def to_set(s):
-    return set(c for c in s)
-
 def common3(s1, s2, s3):
-    set1 = to_set(s1)
-    set2 = to_set(s2)
-    set3 = to_set(s3)
-    result = set1.intersection(set2).intersection(set3)
-    for c in result:
-        return c
+    for c in s1:
+        if c in s2 and c in s3:
+            return c
 
 with open('3.txt', 'r') as f:
     data = f.readlines()
     result_1 = 0
     for line in data:
         line = line.strip()
-        n = len(line)
-        mid = n//2
+        mid = len(line) // 2
         first, second = line[:mid], line[mid:]
         result_1 += priority(common2(first, second))
     print(result_1)
