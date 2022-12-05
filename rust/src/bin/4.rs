@@ -1,6 +1,4 @@
-mod util;
-
-use util::util::read_lines;
+use util::read_lines;
 
 type Interval = (u32, u32);
 

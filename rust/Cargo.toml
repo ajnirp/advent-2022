@@ -1,0 +1,18 @@
+[package]
+name = "advent"
+version = "0.1.0"
+license = "MIT"
+repository = "https://github.com/ajnirp/advent-2022"
+edition = "2021"
+
+[workspace]
+
+[lib]
+name = "util"
+src = "src/lib.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+lazy_static = "1.4.0"
+regex = "1"

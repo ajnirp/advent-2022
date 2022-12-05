@@ -1,7 +1,5 @@
-mod util;
-
 use std::collections::HashMap;
-use util::util::read_lines;
+use util::read_lines;
 
 fn main() {
     let first_col_map = HashMap::from([('A', 'R'), ('B', 'P'), ('C', 'S')]);

@@ -1,5 +1,4 @@
-mod util;
-use util::util::read_lines;
+use util::read_lines;
 
 fn main() {
     if let Ok(lines) = read_lines("1.txt") {

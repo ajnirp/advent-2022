@@ -1,6 +1,4 @@
-mod util;
-
-use util::util::read_lines;
+use util::read_lines;
 
 fn priority(c: char) -> u8 {
     let byte = c as u8;
