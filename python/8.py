@@ -4,15 +4,14 @@ def process_line(line):
 def count_visible(grid):
     result = 0
     r, c = len(grid), len(grid[0])
-    result += 2*c + 2*(r-2)
+    result += 2*c + 2*(r-2) # boundary trees
 
     seen = set()
 
     for ri in range(1, r-1):
         # go right
         max_so_far = grid[ri][0]
-        last_max = 0
-        for cj in range(1, c-1):
+        for cj in range(1, c-1, 1):
             if grid[ri][cj] > max_so_far:
                 if (ri, cj) not in seen:
                     result += 1
@@ -31,7 +30,7 @@ def count_visible(grid):
     for ci in range(1, c-1):
         # go down
         max_so_far = grid[0][ci]
-        for rj in range(1, r-1):
+        for rj in range(1, r-1, 1):
             if grid[rj][ci] > max_so_far:
                 if (rj, ci) not in seen:
                     result += 1
