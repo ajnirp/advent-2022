@@ -143,7 +143,7 @@ def process_data(data, state):
             size = int(size)
             state.maybe_create_file(name, size)
 
-with open('7.txt', 'r') as f:
+with open('../data/7.txt', 'r') as f:
     data = [line.strip() for line in f.readlines()]
     state = State()
     process_data(data, state)

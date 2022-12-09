@@ -24,7 +24,7 @@ defeats = {
 
 defeated_by = {v: k for k, v in defeats.items()}
 
-with open('2.txt', 'r') as f:
+with open('../data/2.txt', 'r') as f:
     score = 0
     score_2 = 0
     data = f.readlines()

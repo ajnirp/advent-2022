@@ -1,4 +1,4 @@
-with open('1.txt', 'r') as f:
+with open('../data/1.txt', 'r') as f:
     data = f.read()
 
 elves = data.strip().split('\n\n')

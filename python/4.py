@@ -15,7 +15,7 @@ def overlap(r1, r2):
     x2, y2 = r2
     return x2 <= x1 <= y2 or x2 <= y1 <= y2 or strict_subset(r2, r1)
 
-with open('4.txt', 'r') as f:
+with open('../data/4.txt', 'r') as f:
     data = f.readlines()
     result_1, result_2 = 0, 0
     for line in data:

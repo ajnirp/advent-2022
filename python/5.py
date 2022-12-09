@@ -24,7 +24,7 @@ def parse_config(config, num_stacks):
 def result(config):
     return ''.join(stack[-1] for stack in config)
 
-with open('5.txt', 'r') as f:
+with open('../data/5.txt', 'r') as f:
     data = [line.strip() for line in f.readlines()]
     result_1 = 0
     result_2 = 0

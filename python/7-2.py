@@ -6,7 +6,7 @@ UNUSED_REQUIRED = 30_000_000
 
 # Skip dir lines. Skip ls lines. Store every dir size in a map. When you see a
 # file, update size for its parent dir as well as each ancestor.
-with open('7.txt', 'r') as f:
+with open('../data/7.txt', 'r') as f:
     cwd = []
     sizes = defaultdict(int)
     for line in f.readlines():

@@ -13,7 +13,7 @@ def common3(s1, s2, s3):
         if c in s2 and c in s3:
             return c
 
-with open('3.txt', 'r') as f:
+with open('../data/3.txt', 'r') as f:
     data = f.readlines()
     result_1 = 0
     for line in data:

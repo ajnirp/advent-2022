@@ -88,7 +88,7 @@ def best_score(grid):
 
     return result
 
-with open('8.txt', 'r') as f:
+with open('../data/8.txt', 'r') as f:
     grid = [process_line(line) for line in f.readlines()]
     print(count_visible(grid))
     print(best_score(grid))

@@ -4,7 +4,7 @@ def find_first_index(data, n):
         if len(set(substr)) == n:
             return i+1
 
-with open('6.txt', 'r') as f:
+with open('../data/6.txt', 'r') as f:
     data = f.read().strip()
     print(find_first_index(data, 4))
     print(find_first_index(data, 14))

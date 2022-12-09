@@ -59,7 +59,7 @@ def solve(moves, num_knots):
         process_move(direction, num, state, seen, num_knots)
     return len(seen)
 
-with open('9.txt', 'r') as f:
+with open('../data/9.txt', 'r') as f:
     moves = [line.strip() for line in f.readlines()]
     print(solve(moves, 2))
     print(solve(moves, 10))
