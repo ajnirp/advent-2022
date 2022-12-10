@@ -30,24 +30,25 @@ def follow(follower_prev, leader_curr):
 
 def move_independent(direction, pos):
     if direction == 'R':
-        pos[1] += 1
-    elif direction == 'L':
-        pos[1] -= 1
-    elif direction == 'U':
         pos[0] += 1
-    else:
+    elif direction == 'L':
         pos[0] -= 1
+    elif direction == 'U':
+        pos[1] += 1
+    else:
+        pos[1] -= 1
 
-def single_move(direction, state, num_knots):
+def single_move(direction, state):
     # move the head knot
     move_independent(direction, state[0])
+    num_knots = len(state)
     for i in range(1, num_knots):
         # the other knots follow their immediate leader
         follow(state[i], state[i-1])
 
-def process_move(direction, num, state, seen, num_knots):
+def process_move(direction, num, state, seen):
     for _ in range(num):
-        single_move(direction, state, num_knots)
+        single_move(direction, state)
         seen.add((state[-1][0], state[-1][1])) # update where the tail has been
 
 def solve(moves, num_knots):
@@ -56,7 +57,7 @@ def solve(moves, num_knots):
     for move in moves:
         direction, num = move.split()
         num = int(num)
-        process_move(direction, num, state, seen, num_knots)
+        process_move(direction, num, state, seen)
     return len(seen)
 
 with open('../data/9.txt', 'r') as f:
