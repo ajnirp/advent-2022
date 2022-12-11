@@ -2,28 +2,28 @@ from copy import deepcopy
 
 NUM_MONKEYS = 7
 
-# https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Using_the_existence_construction
-def bezout(a, n):
-    def extended_euclidean(a, b):
-        r0, r1 = a, b
-        s0, s1 = 1, 0
-        t0, t1 = 0, 1
-        while r1 != 0:
-            q = r0 // r1
-            r2 = r0 - q*r1
-            s2 = s0 - q*s1
-            t2 = t0 - q*t1
-            r0, r1 = r1, r2
-            s0, s1 = s1, s2
-            t0, t1 = t1, t2
-        return s0, t0
-    for i in range(len(n)-1):
-        a1, a2 = a[i:i+2]
-        n1, n2 = n[i:i+2]
-        m1, m2 = extended_euclidean(n1, n2)
-        n[i+1] = n1*n2
-        a[i+1] = (a1*m2*n2 + a2*m1*n1) % (n1*n2)
-    return a[-1]
+# # https://en.wikipedia.org/wiki/Chinese_remainder_theorem#Using_the_existence_construction
+# def bezout(a, n):
+#     def extended_euclidean(a, b):
+#         r0, r1 = a, b
+#         s0, s1 = 1, 0
+#         t0, t1 = 0, 1
+#         while r1 != 0:
+#             q = r0 // r1
+#             r2 = r0 - q*r1
+#             s2 = s0 - q*s1
+#             t2 = t0 - q*t1
+#             r0, r1 = r1, r2
+#             s0, s1 = s1, s2
+#             t0, t1 = t1, t2
+#         return s0, t0
+#     for i in range(len(n)-1):
+#         a1, a2 = a[i:i+2]
+#         n1, n2 = n[i:i+2]
+#         m1, m2 = extended_euclidean(n1, n2)
+#         n[i+1] = n1*n2
+#         a[i+1] = (a1*m2*n2 + a2*m1*n1) % (n1*n2)
+#     return a[-1]
 
 class Monkey:
     def __init__(self, items, operation, divisible, throw_to):
@@ -59,11 +59,12 @@ class State:
         self.worry_decreases = worry_decreases
 
     def normalize_worry(self, worry):
-        a = [worry % monkey.divisible for monkey in self.monkeys]
-        n = [monkey.divisible for monkey in self.monkeys]
-        if all(e == 0 for e in a):
-            return 0
-        return bezout(a, n)
+        return worry % 9699690
+        # a = [worry % monkey.divisible for monkey in self.monkeys]
+        # n = [monkey.divisible for monkey in self.monkeys]
+        # if all(e == 0 for e in a):
+        #     return 0
+        # return bezout(a, n)
 
     def do_rounds(self, n):
         for i in range(n):
