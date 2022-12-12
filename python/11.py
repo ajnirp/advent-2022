@@ -59,6 +59,7 @@ class State:
         self.worry_decreases = worry_decreases
 
     def normalize_worry(self, worry):
+        # they're all prime, so find worry modulo their product
         return worry % 9699690
         # a = [worry % monkey.divisible for monkey in self.monkeys]
         # n = [monkey.divisible for monkey in self.monkeys]
