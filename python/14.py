@@ -63,11 +63,6 @@ def drop_grain(grid, src, part2=False):
                 return True
     return False
 
-def print_grid(grid):
-    for line in grid: print(''.join(line))
-
-import sys
-
 def solve(data):
     x0, x1, y1 = xy_bounds(data)
     normalize_data(data)

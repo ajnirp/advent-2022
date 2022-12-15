@@ -1,9 +1,10 @@
+from ast import literal_eval
 from collections import Counter, defaultdict
 from functools import cmp_to_key
 
 def parse_pair(pair):
     a, b = pair.split('\n')
-    return eval(a), eval(b)
+    return literal_eval(a), literal_eval(b)
 
 # -1 a smaller
 # 0 eq
