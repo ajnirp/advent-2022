@@ -67,14 +67,12 @@ def solve(node, target, monkeys):
             return solve(unknown, known * target, monkeys)
         elif unknown == right:
             return solve(unknown, known // target, monkeys)
-
-monkeys_copy = deepcopy(monkeys)
-del monkeys_copy['humn']
-e1 = evaluate(equations['root'][1], monkeys_copy, equations)
-e2 = evaluate(equations['root'][2], monkeys_copy, equations)
-unknown = equations['root'][1]
-target = e1 if e1 else e2
-unknown = equations['root'][2] if e1 else unknown
+    elif operator == '=':
+        return solve(unknown, known, monkeys)
 
 # Part 2
-print(solve(unknown, target, monkeys_copy))
+monkeys_copy = deepcopy(monkeys)
+del monkeys_copy['humn']
+a, b, c = equations['root']
+equations['root'] = ('=', b, c)
+print(solve('root', None, monkeys_copy))
