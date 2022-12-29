@@ -1,23 +1,14 @@
 #!/usr/bin/python3
 # ./25.py < ../data/25.txt
 
-with open(0) as file:
-	data = [line.strip() for line in file.readlines()]
-
-def from_snafu(snafu):
+def snafu_to_decimal(snafu):
 	decimal = 0
 	for char in snafu:
 		digit = '=-012'.index(char) - 2
 		decimal = decimal*5 + digit
 	return decimal
-
-def from_base_5(string):
-	decimal = 0
-	for char in string:
-		decimal = decimal*5 + int(char)
-	return decimal
 	
-def to_base_5(decimal):
+def decimal_to_base_5(decimal):
 	if decimal == 0:
 		return '0'
 	digits = []
@@ -31,10 +22,12 @@ def to_base_5(decimal):
 def base_5_to_snafu(string):
 	return ['=-012'[int(char)] for char in string]
 
-def to_snafu(decimal):
-	base_5 = to_base_5(decimal)
-	offset = from_base_5('2' * len(base_5))
-	base_5_increased = to_base_5(decimal + offset)
+def decimal_to_snafu(decimal):
+	base_5 = decimal_to_base_5(decimal)
+	offset = int('2' * len(base_5), 5)
+	base_5_increased = decimal_to_base_5(decimal + offset)
 	return ''.join(base_5_to_snafu(base_5_increased))
 
-print(to_snafu(sum(from_snafu(string) for string in data)))
+with open(0) as file:
+	data = map(lambda line: line.strip(), file.readlines())
+	print(decimal_to_snafu(sum(map(snafu_to_decimal, data))))
